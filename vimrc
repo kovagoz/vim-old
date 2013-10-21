@@ -89,7 +89,7 @@ nnoremap <c-b> :CtrlPBuffer<CR>
 nnoremap <c-t> :CtrlPBufTag<CR>
 
 Bundle 'scrooloose/nerdtree.git'
-nnoremap <Leader>o :NERDTreeToggle<CR>
+nnoremap <c-o> :NERDTreeToggle<CR>
 
 Bundle 'tpope/vim-fugitive.git'
 let g:fugitive_git_executable = 'git -c color.status=false'
