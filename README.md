@@ -12,7 +12,7 @@ You need vim compiled with Python 2.6+ or 3.2+ support for Powerline to work.
 ## Installation
 
 ```bash
-git clone https://github.com/kovagoz/vim ~/.vim
+git clone https://github.com/kovagoz/vim ~/.vim --recursive
 echo 'source ~/.vim/vimrc' > ~/.vimrc
 vim +BundleInstall +qall
 ```
