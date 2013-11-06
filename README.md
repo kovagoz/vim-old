@@ -7,7 +7,7 @@ This is my Vim configuration.
 
 [Powerline fonts](https://github.com/Lokaltog/powerline-fonts) have installed on your host.
 
-You need vim compiled with Python 2.6+ or 3.2+ support for Powerline to work.
+You need vim compiled with Python 2.6+ or 3.2+ support for Powerline to work (vim-nox package on Debian).
 
 ## Installation
 
