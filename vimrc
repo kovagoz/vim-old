@@ -106,7 +106,7 @@ nnoremap <leader>u :GundoToggle<CR>
 
 Bundle 'rayburgemeestre/phpfolding.vim.git'
 let g:DisableAutoPHPFolding = 1
-nnoremap zf :EnablePHPFolds<CR>
+nnoremap zf :EnablePHPFolds<CR>zz
 
 Bundle 'Align'
 vnoremap aa :Align =><CR>
