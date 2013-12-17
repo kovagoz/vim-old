@@ -104,9 +104,9 @@ vmap <Leader>cc gc
 Bundle 'sjl/gundo.vim'
 nnoremap <leader>u :GundoToggle<CR>
 
-" Bundle 'phpfolding.vim'
-" let g:DisableAutoPHPFolding = 1
-" nnoremap zf :EnablePHPFolds<CR>zr
+Bundle 'rayburgemeestre/phpfolding.vim.git'
+let g:DisableAutoPHPFolding = 1
+nnoremap zf :EnablePHPFolds<CR>
 
 Bundle 'Align'
 vnoremap aa :Align =><CR>
