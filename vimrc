@@ -134,6 +134,9 @@ filetype plugin indent on
 "  Custom shortcuts
 "-------------------------------------------------
 
+" Search with space
+nnoremap <space> /
+
 " switch between buffers
 noremap <silent> <Left>  :bNext<CR>
 noremap <silent> <Right> :bnext<CR>
