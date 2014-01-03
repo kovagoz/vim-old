@@ -63,6 +63,9 @@ Bundle 'hallison/vim-markdown.git'
 Bundle 'nextval'
 Bundle 'mattn/emmet-vim.git'
 
+Bundle 'airblade/vim-rooter.git'
+autocmd BufEnter * :Rooter
+
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
