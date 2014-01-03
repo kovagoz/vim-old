@@ -32,7 +32,7 @@ set hidden
 set mouse=a
 set cm=blowfish
 set wildignore+=*/.git/*,*/vendor/*
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set list
 set laststatus=2
