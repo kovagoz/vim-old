@@ -63,6 +63,16 @@ Bundle 'hallison/vim-markdown.git'
 Bundle 'nextval'
 Bundle 'mattn/emmet-vim.git'
 
+Bundle 'szw/vim-tags.git'
+if has("macunix")
+    let s:ctags_cmd = "/usr/local/bin/ctags"
+else
+    let s:ctags_cmd = "ctags"
+endif
+let g:vim_tags_ignore_files = ['.gitignore']
+let g:vim_tags_project_tags_command =
+\ s:ctags_cmd . " -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+
 Bundle 'airblade/vim-rooter.git'
 autocmd BufEnter * :Rooter
 
