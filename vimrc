@@ -9,9 +9,10 @@ if ! has('gui_running')
     augroup END
 endif
 
+set guifont=Inconsolata\ for\ Powerline:h15
+
 syntax on
 set t_Co=256
-set background=dark
 set modeline
 set number
 set smartindent
@@ -50,10 +51,30 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
+
+if has('gui_running')
+    set background=light
+
+    Bundle 'Solarized'
+    let g:solarized_termcolors=256
+    silent! colorscheme solarized
+else
+    set background=dark
+
+    Bundle 'sjl/badwolf.git'
+    silent! colorscheme badwolf
+endif
+
+Bundle 'stephenmckinney/vim-solarized-powerline'
+
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+let g:Powerline_colorscheme='solarized256_light'
+
 Bundle 'DataWraith/auto_mkdir.git'
 Bundle 'airblade/vim-gitgutter.git'
-Bundle 'kovagoz/vim-autocomplpop'
+"Bundle 'kovagoz/vim-autocomplpop'
+Bundle 'Shougo/neocomplcache.vim.git'
+let g:neocomplcache_enable_at_startup = 1
 Bundle 'L9'
 Bundle 'matchit.zip'
 Bundle 'xsbeats/vim-blade.git'
@@ -62,16 +83,21 @@ Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'hallison/vim-markdown.git'
 Bundle 'nextval'
 Bundle 'mattn/emmet-vim.git'
+Bundle 'rking/ag.vim'
 
-Bundle 'szw/vim-tags.git'
-if has("macunix")
-    let s:ctags_cmd = "/usr/local/bin/ctags"
-else
-    let s:ctags_cmd = "ctags"
-endif
-let g:vim_tags_ignore_files = ['.gitignore']
-let g:vim_tags_project_tags_command =
-\ s:ctags_cmd . " -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim.git'
+let g:gist_post_private = 1
+
+" Bundle 'szw/vim-tags.git'
+" if has("macunix")
+"     let s:ctags_cmd = "/usr/local/bin/ctags"
+" else
+"     let s:ctags_cmd = "ctags"
+" endif
+" let g:vim_tags_ignore_files = ['.gitignore']
+" let g:vim_tags_project_tags_command =
+" \ s:ctags_cmd . " -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 
 Bundle 'airblade/vim-rooter.git'
 autocmd BufEnter * :Rooter
@@ -88,9 +114,6 @@ autocmd FileType php set ft=php.laravel
 Bundle 'chilicuil/vim-sprunge'
 nnoremap <Leader>y :Sprunge<CR>
 vnoremap <Leader>y :Sprunge<CR>
-
-Bundle 'sjl/badwolf.git'
-silent! colorscheme badwolf
 
 Bundle 'kien/ctrlp.vim.git'
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:20'
@@ -134,7 +157,10 @@ let g:syntastic_enable_signs = 1
 let g:syntastic_auto_jump = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_phpcs_disable = 1
-let g:syntastic_mode_map = {'mode': 'active', 'active_filetypes': ['php']}
+let g:syntastic_mode_map = {
+            \ 'mode': 'active',
+            \ 'active_filetypes': ['php'],
+            \ 'passive_filetypes': ['html'] }
 let g:syntastic_php_checkers=['php']
 
 Bundle 'joonty/vdebug.git'
@@ -149,6 +175,9 @@ filetype plugin indent on
 
 " Search with space
 nnoremap <space> /
+
+nnoremap <C-j> :cnext<CR>
+nnoremap <C-k> :cNext<CR>
 
 " switch between buffers
 noremap <silent> <Left>  :bNext<CR>
