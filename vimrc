@@ -31,7 +31,7 @@ set undolevels=100
 set hidden
 set mouse=a
 set cm=blowfish
-set wildignore+=*/.git/*,*/vendor/*
+set wildignore+=*/.git/*,*/vendor/*,*/node_modules/*,*/assets/*
 " set clipboard=unnamedplus
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set list
@@ -62,6 +62,10 @@ Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'hallison/vim-markdown.git'
 Bundle 'nextval'
 Bundle 'mattn/emmet-vim.git'
+" Bundle 'YankRing.vim'
+" Bundle "daylerees/colour-schemes", { "rtp": "vim/" }
+Bundle 'int3/vim-extradite.git'
+Bundle 'gcmt/wildfire.vim.git'
 
 Bundle 'szw/vim-tags.git'
 if has("macunix")
@@ -155,7 +159,7 @@ noremap <silent> <Left>  :bNext<CR>
 noremap <silent> <Right> :bnext<CR>
 
 " Run PHP from Vim
-autocmd FileType php noremap <C-M> :w!<CR>:!clear;/usr/bin/php %:p<CR>
+"autocmd FileType php noremap <C-M> :w!<CR>:!clear;/usr/bin/php %:p<CR>
 
 " Always open quickfix window at the bottom of layout
 autocmd FileType qf wincmd J
