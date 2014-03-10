@@ -9,8 +9,6 @@ if ! has('gui_running')
     augroup END
 endif
 
-set guifont=Inconsolata\ for\ Powerline:h15
-
 syntax on
 set t_Co=256
 set modeline
@@ -53,6 +51,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 if has('gui_running')
+    if has("gui_macvim")
+        set guifont=Inconsolata\ for\ Powerline:h15
+    else
+        set guifont=Inconsolata\ for\ Powerline\ 13
+    endif
+    set guioptions-=T
+
     set background=light
 
     Bundle 'Solarized'
