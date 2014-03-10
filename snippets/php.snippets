@@ -1,0 +1,35 @@
+snippet r:g
+	Route::get('${1:path}', function () {
+		${0}
+	});
+
+snippet r:p
+	Route::post('${1:path}', function () {
+		${0}
+	});
+
+snippet v:m
+	View::make('${1:path}', ${2:[]});${0}
+
+snippet model
+	<?php
+
+	namespace ${1};
+
+	use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+	use Doctrine\Common\Collections\ArrayCollection;
+	use Magyarjeti\LaravelMongo\Model;
+
+	/**
+	 * @ODM\Document(
+	 *     collection="${3:$2}",
+	 *     repositoryClass="Magyarjeti\LaravelMongo\EloquentRepository"
+	 * )
+	 */
+	class ${2:`vim_snippets#Filename()`} extends Model
+	{
+		/** @ODM\Id */
+		protected $id;
+
+		${0}
+	}
