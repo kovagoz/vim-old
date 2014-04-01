@@ -32,7 +32,7 @@ set undolevels=100
 set hidden
 set mouse=a
 set cm=blowfish
-set wildignore+=*/.git/*,*/vendor/*
+set wildignore+=*/.git/*,*/vendor/*,*/node_modules/*,*/assets/*
 " set clipboard=unnamedplus
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set list
