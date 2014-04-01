@@ -9,8 +9,6 @@ if ! has('gui_running')
     augroup END
 endif
 
-set guifont=Inconsolata\ for\ Powerline:h15
-
 syntax on
 set t_Co=256
 set modeline
@@ -53,6 +51,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 if has('gui_running')
+    if has("gui_macvim")
+        set guifont=Inconsolata\ for\ Powerline:h15
+    else
+        set guifont=Inconsolata\ for\ Powerline\ 13
+    endif
+    set guioptions-=T
+
     set background=light
 
     Bundle 'Solarized'
@@ -83,21 +88,23 @@ Bundle 'terryma/vim-multiple-cursors.git'
 Bundle 'hallison/vim-markdown.git'
 Bundle 'nextval'
 Bundle 'mattn/emmet-vim.git'
-Bundle 'rking/ag.vim'
+" Bundle 'YankRing.vim'
+Bundle 'int3/vim-extradite.git'
+Bundle 'gcmt/wildfire.vim.git'
+
+Bundle 'szw/vim-tags.git'
+if has("macunix")
+    let s:ctags_cmd = "/usr/local/bin/ctags"
+else
+    let s:ctags_cmd = "ctags"
+endif
+let g:vim_tags_ignore_files = ['.gitignore']
+let g:vim_tags_project_tags_command =
+\ s:ctags_cmd . " -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim.git'
 let g:gist_post_private = 1
-
-" Bundle 'szw/vim-tags.git'
-" if has("macunix")
-"     let s:ctags_cmd = "/usr/local/bin/ctags"
-" else
-"     let s:ctags_cmd = "ctags"
-" endif
-" let g:vim_tags_ignore_files = ['.gitignore']
-" let g:vim_tags_project_tags_command =
-" \ s:ctags_cmd . " -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 
 Bundle 'airblade/vim-rooter.git'
 autocmd BufEnter * :Rooter
@@ -184,7 +191,7 @@ noremap <silent> <Left>  :bNext<CR>
 noremap <silent> <Right> :bnext<CR>
 
 " Run PHP from Vim
-autocmd FileType php noremap <C-M> :w!<CR>:!clear;/usr/bin/php %:p<CR>
+"autocmd FileType php noremap <C-M> :w!<CR>:!clear;/usr/bin/php %:p<CR>
 
 " Always open quickfix window at the bottom of layout
 autocmd FileType qf wincmd J
